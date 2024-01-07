@@ -1,0 +1,146 @@
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/bootstrap.scss";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+:root {
+  --bg-color: #191c24;
+  --link-hover-color: #0f1015;
+  --submenu-nav-link-hover: #ffffff;
+}
+
+.light {
+  --bg-color: rgb(255, 255, 255);
+  --link-hover-color: #e8e8ff;
+  --submenu-nav-link-hover: #0090e7;
+}
+
+.datatable-footer-inner {
+  overflow: hidden;
+}
+body {
+  *::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #5cdc8a;
+    border-radius: 10px;
+    border: 2px solid #555555;
+  }
+}
+#preloader {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparentize(rgba(40, 48, 70, 1), 0.7);
+  height: 100%;
+  display: none;
+}
+
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #9370db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ba55d3;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ff00ff;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* Importing Bootstrap SCSS file. */
+
+input,
+select {
+  border-radius: 50px !important;
+}
+
+.error {
+  border-color: red !important;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.btn {
+  border-radius: 25rem !important;
+}
+.btn-success {
+  background-color: #5cdc8a !important;
+}
+
+.btn-primary {
+  background-color: #34495e !important;
+}
+
+.modal-body,
+.modal-header,
+.modal-footer {
+  background-color: var(--bg-color);
+}

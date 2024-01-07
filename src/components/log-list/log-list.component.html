@@ -1,0 +1,31 @@
+<ng-container *ngIf="dataList$ | async as data">
+  <div class="row">
+    <div class="col-12">
+      <ngx-datatable
+        #table
+        class="bootstrap"
+        [rows]="data.result"
+        [columnMode]="columnMode"
+        [headerHeight]="40"
+        [footerHeight]="40"
+        (sort)="onSort($event)"
+        [count]="data.total"
+        [externalPaging]="true"
+        [externalSorting]="true"
+        [offset]="pager.offset"
+        (page)="setPage($event)"
+        [limit]="pager.pageSize"
+        rowHeight="auto"
+      >
+        <ngx-datatable-column name="Mesaj" prop="detail"></ngx-datatable-column>
+        <ngx-datatable-column name="Tarih" prop="createdDate">
+          <ng-template let-createdDate="value" ngx-datatable-cell-template>
+            <span class="badge badge-pill"
+              >{{ createdDate + "Z" | date : "dd-MM-yyyy HH:mm" }}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+  </div>
+</ng-container>

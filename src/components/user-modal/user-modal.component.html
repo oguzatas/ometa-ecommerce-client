@@ -1,0 +1,90 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    {{ mode == "add" ? "Yeni Kullanıcı" : user?.name }}
+  </h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    style="color: #fff"
+    (click)="close(false)"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="modal-body">
+    <div class="row">
+      <div class="form-group col-12">
+        <label for="name">İsim</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.error]="f.name.touched && f.name.errors"
+          id="name"
+          formControlName="name"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="username">E-posta</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.error]="f.username.touched && f.username.errors"
+          id="username"
+          formControlName="username"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="balance">Bakiye</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.error]="f.balance.touched && f.balance.errors"
+          id="balance"
+          formControlName="balance"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="role">Rol</label>
+        <select
+          name="role"
+          formControlName="role"
+          [class.error]="f.role.touched && f.role.errors"
+          class="form-control"
+          id="role"
+        >
+          <option value="Admin">Admin</option>
+          <option value="User">User</option>
+        </select>
+      </div>
+      <div class="form-group col-12 ml-4" *ngIf="mode == 'edit'">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          formControlName="changePassword"
+          id="changepassword"
+        />
+        <label class="form-check-label" for="changepassword"
+          >Şifreyi değiştir</label
+        >
+      </div>
+      <div
+        class="form-group col-12"
+        *ngIf="mode == 'add' || f.changePassword.value"
+      >
+        <label for="password">Şifre</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.error]="f.password.touched && f.password.errors"
+          id="password"
+          formControlName="password"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-inverse-primary">Kaydet</button>
+  </div>
+</form>

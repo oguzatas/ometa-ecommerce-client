@@ -1,0 +1,126 @@
+<ng-container *ngIf="settings">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-success">Kaydet</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4 col-12">
+        <label for="admingroupid">Admin grubu chat id</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="adminGroupId"
+          id="admingroupid"
+        />
+      </div>
+      <div class="form-group col-md-4 col-12">
+        <label for="tibengel">Tib engel mesajı</label>
+        <input
+          type="text"
+          formControlName="blockMessage"
+          class="form-control"
+          id="tibengel"
+        />
+      </div>
+      <div class="form-group col-md-4 col-12">
+        <label for="erisemiyorummsg">Erisemiyorum mesajı</label>
+        <input
+          type="text"
+          formControlName="erisemiyorumMesaj"
+          class="form-control"
+          id="erisemiyorummsg"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4 col-12">
+        <label for="guncellendierisemiyorum"
+          >Güncellendi erişemiyorum mesajı</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          formControlName="updatedInacessibleMessage"
+          id="guncellendierisemiyorum"
+        />
+      </div>
+      <div class="form-group col-md-4 col-12">
+        <label for="guncellenditibkalkti"
+          >Guncellendi tib engel kalktı mesajı</label
+        >
+        <input
+          type="text"
+          formControlName="updatedUnblockedMessage"
+          class="form-control"
+          id="guncellenditibkalkti"
+        />
+      </div>
+      <div class="form-group col-md-4 col-12">
+        <label for="guncellenditibpresent"
+          >Güncellendi tib devam ediyor mesajı</label
+        >
+        <input
+          type="text"
+          formControlName="updatedStillBlockedMessage"
+          class="form-control"
+          id="guncellenditibpresent"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4 col-12">
+        <label for="certificateErrorMessage">Sertifika hatası mesajı</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="certificateErrorMessage"
+          id="certificateErrorMessage"
+        />
+      </div>
+      <div class="form-group col-md-4 col-12">
+        <label for="updatedCertificateErrorMessage"
+          >Güncellendi sertifika hatası mesajı</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          formControlName="updatedCertificateErrorMessage"
+          id="updatedCertificateErrorMessage"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4 col-12">
+        <label for="hasRedirectionMessage">Yönlendirme var mesajı</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="hasRedirectionMessage"
+          id="hasRedirectionMessage"
+        />
+      </div>
+      <div class="form-group col-md-4 col-12">
+        <label for="updatedHasRedirectionMessage"
+          >Güncellendi yönlendirme var mesajı</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          formControlName="updatedHasRedirectionMessage"
+          id="updatedHasRedirectionMessage"
+        />
+      </div>
+      <div class="form-group col-md-4 col-12">
+        <label for="telegramBotUserName">Bot kullanici adi</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="telegramBotUserName"
+          id="telegramBotUserName"
+        />
+      </div>
+    </div>
+  </form>
+</ng-container>

@@ -1,0 +1,158 @@
+<ng-container>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row mb-1">
+      <div class="col-12 d-flex justify-content-end">
+        <button
+          class="btn btn-primary mr-1"
+          type="button"
+          (click)="reTest()"
+          *ngIf="
+            f.state.value == 2 && operation == 'edit' && f.status.value == 1
+          "
+        >
+          <em class="fa fa-redo"></em>
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger mr-1"
+          (click)="delete()"
+          *ngIf="operation == 'edit'"
+        >
+          <em class="fas fa-trash-alt"></em>
+        </button>
+        <button type="submit" class="btn btn-success">
+          <em class="fas fa-save"></em>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <!-- left side -->
+      <div class="col-md-6 col-12">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="websitename">İsim</label>
+            <input
+              type="email"
+              [class.error]="f.name.touched && f.name.errors"
+              formControlName="name"
+              class="form-control"
+              id="websitename"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="addressfield">Adres</label>
+            <input
+              type="text"
+              [class.error]="f.address.touched && f.address.errors"
+              class="form-control"
+              id="addressfield"
+              formControlName="address"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="telegramid">Telegram chatid</label>
+            <input
+              type="text"
+              class="form-control"
+              [class.error]="f.telegramId.touched && f.telegramId.errors"
+              formControlName="telegramId"
+              id="telegramid"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="status">Durum</label>
+            <select
+              name="status"
+              formControlName="status"
+              [class.error]="f.status.touched && f.status.errors"
+              class="form-control"
+              id="status"
+            >
+              <option value="1">Aktif</option>
+              <option value="0">Pasif</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4 col-12">
+            <label for="https">SSL/TLS Hatalarını yoksay</label>
+            <select
+              id="ignoreSslErrors"
+              formControlName="ignoreSslErrors"
+              [class.error]="
+                f.ignoreSslErrors.touched && f.ignoreSslErrors.errors
+              "
+              name="ignoreSslErrors"
+              class="custom-select"
+            >
+              <option value="true">Evet</option>
+              <option value="false">Hayır</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- right side -->
+      <div class="col-md-6 col-12">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="status">Zaman dilimi</label>
+            <select
+              id="timeframe"
+              formControlName="checkEvery"
+              [class.error]="f.checkEvery.touched && f.checkEvery.errors"
+              name="timeframe"
+              class="custom-select"
+            >
+              <option value="1">Saat</option>
+              <option value="2">Dakika</option>
+              <option value="3">Saniye</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="status">Servis test aralığı</label>
+            <input
+              id="checkValue"
+              name="checkValue"
+              formControlName="checkValue"
+              [class.error]="f.checkValue.touched && f.checkValue.errors"
+              type="text"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="status">Maksimum tekrar deneme sayısı</label>
+            <input
+              id="checkValue"
+              name="checkValue"
+              formControlName="maximumRetries"
+              [class.error]="
+                f.maximumRetries.touched && f.maximumRetries.errors
+              "
+              type="text"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="https">Https</label>
+            <select
+              id="https"
+              formControlName="https"
+              [class.error]="f.https.touched && f.https.errors"
+              name="https"
+              class="custom-select"
+            >
+              <!-- <option value="true">Otomatik</option> -->
+              <option [value]="false">Otomatik</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</ng-container>

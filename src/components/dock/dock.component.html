@@ -1,0 +1,29 @@
+<div class="logo-d">
+  <img
+    src="https://blog.codepen.io/wp-content/uploads/2012/06/codepen-wordmark-display-inside-white@10x.png"
+    alt=""
+  />
+</div>
+<div class="line"></div>
+<div id="container">
+  <div id="dock">
+    <ul>
+      <ng-container *ngFor="let item of menu">
+        <li
+          *ngIf="item.roleCheck == 'no' || auth.hasRole(item.roleCheck)"
+          [routerLink]="[item.link]"
+        >
+          <span>{{ item.title }}</span>
+          <a><img src="/assets/img/{{ item.img }}" /> </a>
+        </li>
+      </ng-container>
+
+      <li *ngIf="getBotUsername()">
+        <span>Bota mesaj at</span>
+        <a href="https://t.me/{{ getBotUsername() }}" target="_blank">
+          <img src="/assets/img/telegram-brands.png" alt="Bota mesaj at" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

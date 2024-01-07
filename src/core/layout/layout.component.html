@@ -1,0 +1,21 @@
+<div class="container-scroller">
+  <!-- partial:/partials/_sidebar.html -->
+  <nav tib-sidebar class="sidebar sidebar-offcanvas" id="sidebar"></nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    <nav tib-navbar class="navbar p-0 fixed-top d-flex flex-row"></nav>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:/partials/_footer.html -->
+      <footer class="footer" tib-footer></footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
