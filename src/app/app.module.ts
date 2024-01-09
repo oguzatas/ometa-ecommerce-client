@@ -24,6 +24,7 @@ import { PipesModule } from 'src/core/pipes/pipes.module';
 import { AppInitService } from 'src/core/services/app-init.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
+import { CreateComponent } from '../components/products/create/create.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AppRoutingModule } from './app.routing';
     UserModalComponent,
     SettingsComponent,
     LogListComponent,
+    CreateComponent,
   ],
   imports: [
     FormsModule,
@@ -55,6 +57,7 @@ import { AppRoutingModule } from './app.routing';
   entryComponents: [UserModalComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: 'baseUrl', useValue: 'todo/api', multi: true },
     {
       provide: APP_INITIALIZER,
       useFactory: (el: AppInitService) => () => el.init(),
