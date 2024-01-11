@@ -9,22 +9,22 @@ import {
   NgbTypeaheadModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { DetailComponent } from 'src/components/detail/detail.component';
-import { DockComponent } from 'src/components/dock/dock.component';
-import { LogListComponent } from 'src/components/log-list/log-list.component';
-import { LoginComponent } from 'src/components/login/login.component';
-import { SettingsComponent } from 'src/components/settings/settings.component';
-import { UserModalComponent } from 'src/components/user-modal/user-modal.component';
-import { UsersComponent } from 'src/components/users/users.component';
-import { WebSiteListComponent } from 'src/components/website-list/web-site-list.component';
-import { WelcomeComponent } from 'src/components/welcome/welcome.component';
+import { DetailComponent } from 'src/app/admin/components/detail/detail.component';
+import { DockComponent } from 'src/app/admin/components/dock/dock.component';
+import { LogListComponent } from 'src/app/admin/components/log-list/log-list.component';
+import { LoginComponent } from 'src/app/admin/components/login/login.component';
+import { SettingsComponent } from 'src/app/admin/components/settings/settings.component';
+import { UserModalComponent } from 'src/app/admin/components/user-modal/user-modal.component';
+import { UsersComponent } from 'src/app/admin/components/users/users.component';
+import { WebSiteListComponent } from 'src/app/admin/components/website-list/web-site-list.component';
+import { WelcomeComponent } from 'src/app/admin/components/welcome/welcome.component';
 import { JwtInterceptor } from 'src/core/interceptors/jwt.interceptor.service';
-import { LayoutModule } from 'src/core/layout/layout.module';
+import { LayoutModule } from 'src/app/admin/layout/layout.module';
 import { PipesModule } from 'src/core/pipes/pipes.module';
 import { AppInitService } from 'src/core/services/app-init.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { CreateComponent } from '../components/products/create/create.component';
+import { CreateComponent } from './admin/components/products/create/create.component';
 
 @NgModule({
   declarations: [

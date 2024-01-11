@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoriesComponent } from 'src/components/categories/categories.component';
-import { DetailComponent } from 'src/components/detail/detail.component';
-import { LoginComponent } from 'src/components/login/login.component';
-import { ProductsComponent } from 'src/components/products/products.component';
-import { SettingsComponent } from 'src/components/settings/settings.component';
-import { UsersComponent } from 'src/components/users/users.component';
-import { WebSiteListComponent } from 'src/components/website-list/web-site-list.component';
-import { WelcomeComponent } from 'src/components/welcome/welcome.component';
+import { CategoriesComponent } from 'src/app/admin/components/categories/categories.component';
+import { DetailComponent } from 'src/app/admin/components/detail/detail.component';
+import { LoginComponent } from 'src/app/admin/components/login/login.component';
+import { ProductsComponent } from 'src/app/admin/components/products/products.component';
+import { SettingsComponent } from 'src/app/admin/components/settings/settings.component';
+import { UsersComponent } from 'src/app/admin/components/users/users.component';
+import { WebSiteListComponent } from 'src/app/admin/components/website-list/web-site-list.component';
+import { WelcomeComponent } from 'src/app/admin/components/welcome/welcome.component';
 import { AuthGuard } from 'src/core/guards/auth.guard';
 import { SessionGuard } from 'src/core/guards/session.guard';
-import { LayoutComponent } from 'src/core/layout/layout.component';
+import { LayoutComponent } from 'src/app/admin/layout/layout.component';
 
 const routes: Routes = [
   {

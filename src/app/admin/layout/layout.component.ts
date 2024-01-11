@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { JsLoaderService } from '../services/js-loader.service';
+import { JsLoaderService } from '../../../core/services/js-loader.service';
 
 @Component({
   selector: '[tib-layout]',

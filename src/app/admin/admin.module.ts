@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomersComponent } from './components/customers/customers.component';
 
 @NgModule({
-  declarations: [CustomersComponent],
+  declarations: [],
   imports: [CommonModule],
 })
 export class AdminModule {}
