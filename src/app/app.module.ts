@@ -24,7 +24,7 @@ import { PipesModule } from 'src/core/pipes/pipes.module';
 import { AppInitService } from 'src/core/services/app-init.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { CreateComponent } from './admin/components/products/create/create.component';
+import { ProductsModule } from './admin/components/products/products.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,6 @@ import { CreateComponent } from './admin/components/products/create/create.compo
     UserModalComponent,
     SettingsComponent,
     LogListComponent,
-    CreateComponent,
   ],
   imports: [
     FormsModule,
@@ -53,6 +52,7 @@ import { CreateComponent } from './admin/components/products/create/create.compo
     NgbModalModule,
     LayoutModule,
     PipesModule,
+    ProductsModule,
   ],
   entryComponents: [UserModalComponent],
   providers: [

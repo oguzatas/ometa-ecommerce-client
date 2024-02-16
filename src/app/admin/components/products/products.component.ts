@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/contracts/product';
-import { HttpClientService } from 'src/core/services/http-client.service';
+import { CreateComponent } from './create/create.component';
 
 @Component({
   selector: 'tib-products',
@@ -8,19 +7,7 @@ import { HttpClientService } from 'src/core/services/http-client.service';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  create(
-    name: HTMLInputElement,
-    stock: HTMLInputElement,
-    price: HTMLInputElement
-  ) {
-    const create_product: Product = new Product();
-    create_product.name = name.value;
-    create_product.stock = parseInt(stock.value);
-    create_product.price = parseInt(price.value);
-    alert('success');
-  }
-
-  constructor(private httpClientService: HttpClientService) {}
+  constructor() {}
 
   ngOnInit(): void {
     // TEST CODES
