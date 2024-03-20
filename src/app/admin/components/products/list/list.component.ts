@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListProduct } from 'src/app/contracts/list.product';
 import { ProductService } from 'src/core/services/models/product.service';
 
 @Component({
@@ -17,5 +18,10 @@ export class ListComponent implements OnInit {
     'updatedDate',
   ];
 
-  ngOnInit(): void {}
+  dataSource: ListProduct[];
+
+  async ngOnInit() {
+    const allProducts: ListProduct[] = await this.productService.read();
+    this.dataSource = allProducts;
+  }
 }

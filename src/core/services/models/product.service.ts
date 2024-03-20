@@ -42,8 +42,8 @@ export class ProductService {
   }
 
   async read(
-    successCallBack: () => void,
-    errorCallBack: (errorMessage: string) => void
+    successCallBack?: () => void,
+    errorCallBack?: (errorMessage: string) => void
   ): Promise<ListProduct[]> {
     const promiseData: Promise<ListProduct[]> = this.httpClientService
       .get<ListProduct[]>({
