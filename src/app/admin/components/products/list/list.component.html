@@ -19,78 +19,16 @@
                 <th>Kategori</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let product of dataSource; let i = index">
               <tr>
-                <td>1</td>
-                <td>productName</td>
-                <td>$ 77.99</td>
-                <td>May 15, 2015</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
+                <td>{{ i }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.createdDate }}</td>
+                <td>{{ product.changeDate }}</td>
+                <td>{{ product.id }}</td>
 
-                <td><button type="submit" class="btn btn-primary mr-2">Düzenle</button></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>productName</td>
-                <td>$245.30</td>
-                <td>July 1, 2015</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-
-                <td><button type="submit" class="btn btn-primary mr-2">Düzenle</button></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>productName</td>
-                <td>$138.00</td>
-                <td>Apr 12, 2015</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-
-                <td><button type="submit" class="btn btn-primary mr-2">Düzenle</button></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>productName</td>
-                <td>$ 77.99</td>
-                <td>May 15, 2015</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td><button type="submit" class="btn btn-primary mr-2">Düzenle</button></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>productName</td>
-                <td>$ 160.25</td>
-                <td>May 03, 2015</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td><button type="submit" class="btn btn-primary mr-2">Düzenle</button></td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>productName</td>
-                <td>$ 123.21</td>
-                <td>April 05, 2015</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td><button type="submit" class="btn btn-primary mr-2">Düzenle</button></td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>productName</td>
-                <td>150.00</td>
-                <td>June 16, 2015</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
-                <td>categoryName</td>
                 <td><button type="submit" class="btn btn-primary mr-2">Düzenle</button></td>
               </tr>
             </tbody>

@@ -4,5 +4,5 @@ export class ListProduct {
   stock: number;
   price: number;
   createdDate: Date;
-  updatedDate: Date;
+  changeDate: Date;
 }
