@@ -10,14 +10,13 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { WelcomeComponent } from 'src/app/admin/components/welcome/welcome.component';
-import { JwtInterceptor } from 'src/core/interceptors/jwt.interceptor.service';
 import { LayoutModule } from 'src/app/admin/layout/layout.module';
 import { PipesModule } from 'src/core/pipes/pipes.module';
 import { AppInitService } from 'src/core/services/app-init.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { ProductsModule } from './admin/components/products/products.module';
-
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [AppComponent, WelcomeComponent],
   imports: [
@@ -36,7 +35,7 @@ import { ProductsModule } from './admin/components/products/products.module';
     ProductsModule,
   ],
   providers: [
-    { provide: 'baseUrl', useValue: 'todo/api', multi: true },
+    { provide: 'baseUrl', useValue: environment.apiUrl, multi: true },
     {
       provide: APP_INITIALIZER,
       useFactory: (el: AppInitService) => () => el.init(),

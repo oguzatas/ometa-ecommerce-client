@@ -52,10 +52,24 @@ export class ProductService {
       .toPromise();
 
     promiseData
-      .then((d) => successCallBack())
-      .catch((errorResponse: HttpErrorResponse) =>
-        errorCallBack(errorResponse.message)
-      );
+      .then((d) => {
+        if (successCallBack) {
+          successCallBack();
+        }
+      })
+      .catch((errorResponse: HttpErrorResponse) => {
+        const _error: Array<{ key: string; value: Array<string> }> =
+          errorResponse.error;
+        let message = '';
+        _error.forEach((v, index) => {
+          v.value.forEach((_v, _index) => {
+            message += `${_v}<br>`;
+          });
+        });
+        if (errorCallBack) {
+          errorCallBack(message);
+        }
+      });
 
     return await promiseData;
   }

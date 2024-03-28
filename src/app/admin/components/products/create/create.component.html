@@ -1,99 +1,86 @@
 <div class="col-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Yeni Ürün Ekle</h4>
-            <p class="card-description">Ürün Detayları</p>
-            <form class="forms-sample">
-              <div class="form-group">
-                <label for="exampleInputName1">İsim</label>
-                <input
-                  #txtName
-                  type="text"
-                  class="form-control"
-                  id="exampleInputName1"
-                  placeholder="Ürün İsmi"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputName1">Fiyat</label>
-                <input
-                  #txtPrice
-                  type="text"
-                  class="form-control"
-                  id="exampleInputName1"
-                  placeholder="Ürün Fiyatı"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputName1">Stok</label>
-                <input
-                  #txtStock
-                  type="text"
-                  class="form-control"
-                  id="exampleInputName1"
-                  placeholder="Ürün Stok Bilgisi"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail3">Kategoriler</label>
-                <p class="card-description">
-                  Kategorileri ayırmak için aralarına virgül koyarak yazın.
-                </p>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail3"
-                  placeholder="Kategoriler"
-                />
-              </div>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Yeni Ürün Ekle</h4>
+      <p class="card-description">Ürün Detayları</p>
+      <form (submit)="create(txtName, txtStock, txtPrice)" class="forms-sample">
+        <div class="form-group">
+          <label for="exampleInputName1">İsim</label>
+          <input
+            #txtName
+            type="text"
+            class="form-control"
+            id="exampleInputName1"
+            placeholder="Ürün İsmi"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Fiyat</label>
+          <input
+            #txtPrice
+            type="text"
+            class="form-control"
+            id="exampleInputName1"
+            placeholder="Ürün Fiyatı"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1">Stok</label>
+          <input
+            #txtStock
+            type="text"
+            class="form-control"
+            id="exampleInputName1"
+            placeholder="Ürün Stok Bilgisi"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail3">Kategoriler</label>
+          <p class="card-description">Kategorileri ayırmak için aralarına virgül koyarak yazın.</p>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail3"
+            placeholder="Kategoriler"
+          />
+        </div>
 
-              <div class="form-group">
-                <label for="exampleSelectGender">Birden fazla satın alım</label>
-                <select class="form-control" id="exampleSelectGender">
-                  <option>Evet</option>
-                  <option>Hayır</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Ürün için Resimler</label>
-                <input type="file" name="img[]" class="file-upload-default" />
-                <div class="input-group col-xs-12">
-                  <input
-                    type="text"
-                    class="form-control file-upload-info"
-                    disabled
-                    placeholder="Upload Image"
-                  />
-                  <span class="input-group-append">
-                    <button
-                      class="file-upload-browse btn btn-primary"
-                      type="button"
-                      (click)="create(txtName, txtPrice, txtStock)"
-                    >
-                      Yükle
-                    </button>
-                  </span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputCity1">Ürünün bulunduğu Lokasyon</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputCity1"
-                  placeholder="Location"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleTextarea1">Ürün Özellikleri</label>
-                <p class="card-description">
-                  Özellikleri yazarken formatlandırma için Dökümantasyona göz atın.
-                </p>
-                <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary mr-2">Ekle</button>
-              <button class="btn btn-dark">Temizle</button>
-            </form>
+        <div class="form-group">
+          <label for="exampleSelectGender">Birden fazla satın alım</label>
+          <select class="form-control" id="exampleSelectGender">
+            <option>Evet</option>
+            <option>Hayır</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ürün için Resimler</label>
+          <input type="file" name="img[]" class="file-upload-default" />
+          <div class="input-group col-xs-12">
+            <input
+              type="text"
+              class="form-control file-upload-info"
+              disabled
+              placeholder="Upload Image"
+            />
+            <span class="input-group-append">
+              <button class="file-upload-browse btn btn-primary" type="submit">Yükle</button>
+            </span>
           </div>
         </div>
-      </div>
+        <div class="form-group">
+          <label for="exampleInputCity1">Ürünün bulunduğu Lokasyon</label>
+          <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location" />
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea1">Ürün Özellikleri</label>
+          <p class="card-description">
+            Özellikleri yazarken formatlandırma için Dökümantasyona göz atın.
+          </p>
+          <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Ekle</button>
+        <button class="btn btn-dark">Temizle</button>
+      </form>
+    </div>
+  </div>
+</div>
