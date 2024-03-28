@@ -1,19 +1,13 @@
 import { Injectable } from '@angular/core';
 import { GlobalPubSubService } from './global-pub-sub.service';
 import { GLOBAL_EVENTS } from '../enums/global-events.enum';
-import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class AppInitService {
-  constructor(
-    protected pub: GlobalPubSubService,
-    protected auth: AuthService
-  ) {}
+  constructor(protected pub: GlobalPubSubService) {}
 
   eventMap = {
-    [GLOBAL_EVENTS.LOGOUT]: (_?) => {
-      this.auth.logout();
-    },
+    [GLOBAL_EVENTS.LOGOUT]: (_?) => {},
   };
 
   init() {

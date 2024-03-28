@@ -10,7 +10,6 @@ import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject, Subject, of } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { AuthService } from 'src/core/services/auth.service';
 import { JsLoaderService } from 'src/core/services/js-loader.service';
 
 type MenuItem = {
@@ -65,41 +64,36 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
     {
       icon: 'mdi mdi-laptop',
       title: 'E-Ticaret Yönetim',
-      roles: ['Admin'],
+
       isCollapsed: false,
       sub: [
         {
           title: 'Products',
           route: 'products',
-          roles: ['Admin'],
         },
         {
           title: 'Categories',
           route: 'categories',
-          roles: ['Admin'],
         },
       ],
     },
     {
       icon: 'mdi mdi-laptop',
       title: 'Admin Panel Ayarları',
-      roles: ['Admin'],
+
       isCollapsed: false,
       sub: [
         {
           title: 'Kullanıcılar',
           route: 'users',
-          roles: ['Admin'],
         },
         {
           title: 'Tema Ayarları',
           route: 'themesettings',
-          roles: ['Admin'],
         },
         {
           title: 'Roller',
           route: 'roles',
-          roles: ['Admin'],
         },
       ],
     },
@@ -187,24 +181,7 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
           active: !route.sub
             ? path == route.route
             : ((route.sub as any[]) || []).some((x) => x.route === path),
-        }))
-        .map((route) => {
-          const role = this.auth.currentUserValue.role;
-          if (route.sub && route.sub.some((x) => x.roles && x.roles.length)) {
-            route.sub = route.sub.filter(
-              (x) => x.roles && x.roles.length && x.roles.includes(role)
-            );
-          }
-
-          return route;
-        })
-        .filter(
-          (route) =>
-            (route.roles &&
-              route.roles.length &&
-              route.roles.includes(this.auth.currentUserValue.role)) ||
-            !route.roles
-        );
+        }));
 
       return mapped;
     })
@@ -213,8 +190,7 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
   constructor(
     protected jsLoader: JsLoaderService,
     protected location: Location,
-    protected router: Router,
-    protected auth: AuthService
+    protected router: Router
   ) {
     this.router.events.pipe(takeUntil(this.destroy$)).subscribe((event) => {
       if (event instanceof NavigationEnd) {

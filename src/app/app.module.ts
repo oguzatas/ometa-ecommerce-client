@@ -9,14 +9,6 @@ import {
   NgbTypeaheadModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { DetailComponent } from 'src/app/admin/components/detail/detail.component';
-import { DockComponent } from 'src/app/admin/components/dock/dock.component';
-import { LogListComponent } from 'src/app/admin/components/log-list/log-list.component';
-import { LoginComponent } from 'src/app/admin/components/login/login.component';
-import { SettingsComponent } from 'src/app/admin/components/settings/settings.component';
-import { UserModalComponent } from 'src/app/admin/components/user-modal/user-modal.component';
-import { UsersComponent } from 'src/app/admin/components/users/users.component';
-import { WebSiteListComponent } from 'src/app/admin/components/website-list/web-site-list.component';
 import { WelcomeComponent } from 'src/app/admin/components/welcome/welcome.component';
 import { JwtInterceptor } from 'src/core/interceptors/jwt.interceptor.service';
 import { LayoutModule } from 'src/app/admin/layout/layout.module';
@@ -27,18 +19,7 @@ import { AppRoutingModule } from './app.routing';
 import { ProductsModule } from './admin/components/products/products.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    WebSiteListComponent,
-    DetailComponent,
-    WelcomeComponent,
-    DockComponent,
-    UsersComponent,
-    UserModalComponent,
-    SettingsComponent,
-    LogListComponent,
-  ],
+  declarations: [AppComponent, WelcomeComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -54,9 +35,7 @@ import { ProductsModule } from './admin/components/products/products.module';
     PipesModule,
     ProductsModule,
   ],
-  entryComponents: [UserModalComponent],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: 'baseUrl', useValue: 'todo/api', multi: true },
     {
       provide: APP_INITIALIZER,
