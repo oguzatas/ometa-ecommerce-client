@@ -3,6 +3,7 @@ import { HttpClientService } from '../http-client.service';
 import { Create_Product } from 'src/app/contracts/create.product';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ListProduct } from 'src/app/contracts/list.product';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -73,6 +74,21 @@ export class ProductService {
 
     return await promiseData;
   }
+  async delete(id: string) {
+    const observable: Observable<any> = this.httpClientService.delete(
+      {
+        controller: 'products',
+      },
+      id
+    );
+    await observable
+      .toPromise()
+      .then((response) => {
+        console.log('Delete successful', response);
+      })
+      .catch((error) => {
+        console.error('Delete error', error);
+      });
+  }
 }
-
 // spinner koyacağın zaman buraya callback 19. part

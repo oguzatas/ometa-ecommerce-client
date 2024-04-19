@@ -16,7 +16,7 @@
                 <th>Fiyat</th>
                 <th>Eklenme Tarihi</th>
                 <th>Düzenlenme Tarihi</th>
-                <th>Kategori</th>
+                <th>Id</th>
               </tr>
             </thead>
             <tbody *ngFor="let product of dataSource; let i = index">
@@ -29,7 +29,10 @@
                 <td>{{ product.changeDate }}</td>
                 <td>{{ product.id }}</td>
 
-                <td><button type="submit" class="btn btn-primary mr-2">Düzenle</button></td>
+                <td>
+                  <button type="submit" class="btn btn-primary mr-2">Düzenle</button>
+                </td>
+                <td tibDelete [id]="product.id" controller="products"></td>
               </tr>
             </tbody>
           </table>

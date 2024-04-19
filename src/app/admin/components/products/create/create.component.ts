@@ -20,14 +20,11 @@ export class CreateComponent implements OnInit {
     create_product.name = name.value;
     create_product.stock = parseInt(stock.value);
     create_product.price = parseFloat(price.value);
-    alert('success');
 
     this.productService.create(create_product, () => {
-      console.log("Ürün eklendi");
+      console.log('Ürün eklendi');
     });
   }
-
-  
 
   ngOnInit(): void {}
 }

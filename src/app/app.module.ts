@@ -17,8 +17,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { ProductsModule } from './admin/components/products/products.module';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent],
+  declarations: [AppComponent, WelcomeComponent, DeleteDialogComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -33,6 +37,7 @@ import { environment } from '../environments/environment';
     LayoutModule,
     PipesModule,
     ProductsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: 'baseUrl', useValue: environment.apiUrl, multi: true },

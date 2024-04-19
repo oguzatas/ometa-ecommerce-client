@@ -4,6 +4,9 @@ import { CreateComponent } from './create/create.component';
 import { ProductsComponent } from './products.component';
 import { DeleteComponent } from './delete/delete.component';
 import { ListComponent } from './list/list.component';
+import { EditComponent } from './edit/edit.component';
+import { DeleteDirective } from 'src/directives/delete.directive';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -11,6 +14,8 @@ import { ListComponent } from './list/list.component';
     CreateComponent,
     DeleteComponent,
     ListComponent,
+    EditComponent,
+    DeleteDirective,
   ],
   imports: [CommonModule],
   exports: [ProductsComponent],
