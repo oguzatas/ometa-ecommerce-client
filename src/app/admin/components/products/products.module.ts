@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { DeleteDirective } from 'src/directives/delete.directive';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FileUploadModule } from 'src/core/services/common/file-upload/file-upload.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     EditComponent,
     DeleteDirective,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FileUploadModule],
   exports: [ProductsComponent],
 })
 export class ProductsModule {}
