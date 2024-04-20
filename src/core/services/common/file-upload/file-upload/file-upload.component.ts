@@ -1,6 +1,11 @@
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
+import {
+  AlertifyService,
+  MessageType,
+  Position,
+} from 'src/core/services/alertify.service';
 import { HttpClientService } from 'src/core/services/http-client.service';
 
 @Component({
@@ -38,7 +43,16 @@ export class FileUploadComponent {
         fileData
       )
       .subscribe(
-        (data) => {},
+        (data) => {
+          if (this.options.isAdminPage) {
+            this.alertifyService.message('File uploaded successfully', {
+              dismissOthers: true,
+              messageType: MessageType.Success,
+              position: Position.BottomRight,
+            });
+          } else {
+          }
+        },
         (errorResponse: HttpErrorResponse) => {}
       );
   }
