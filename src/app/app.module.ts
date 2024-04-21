@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { markAsUntransferable } from 'worker_threads';
 
 @NgModule({
   declarations: [AppComponent, WelcomeComponent, DeleteDialogComponent],
@@ -38,6 +39,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     PipesModule,
     ProductsModule,
     BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: 'baseUrl', useValue: environment.apiUrl, multi: true },

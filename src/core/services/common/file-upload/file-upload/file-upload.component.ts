@@ -6,6 +6,11 @@ import {
   MessageType,
   Position,
 } from 'src/core/services/alertify.service';
+import {
+  CustomToastrService,
+  ToastrMessageType,
+  ToastrPosition,
+} from 'src/core/services/custom-toastr.service';
 import { HttpClientService } from 'src/core/services/http-client.service';
 
 @Component({
@@ -16,7 +21,8 @@ import { HttpClientService } from 'src/core/services/http-client.service';
 export class FileUploadComponent {
   constructor(
     private httpClientService: HttpClientService,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
+    private toastrService: CustomToastrService
   ) {}
 
   public files: NgxFileDropEntry[];
@@ -51,9 +57,30 @@ export class FileUploadComponent {
               position: Position.BottomRight,
             });
           } else {
+            this.toastrService.message(
+              'File uploaded successfully',
+              'Success',
+              {
+                messageType: ToastrMessageType.Success,
+                position: ToastrPosition.TopRight,
+              }
+            );
           }
         },
-        (errorResponse: HttpErrorResponse) => {}
+        (errorResponse: HttpErrorResponse) => {
+          if (this.options.isAdminPage) {
+            this.alertifyService.message('File upload failed', {
+              dismissOthers: true,
+              messageType: MessageType.Error,
+              position: Position.BottomRight,
+            });
+          } else {
+            this.toastrService.message('File upload failed', 'Fail', {
+              messageType: ToastrMessageType.Error,
+              position: ToastrPosition.TopRight,
+            });
+          }
+        }
       );
   }
 }
