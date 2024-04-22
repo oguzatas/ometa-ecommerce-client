@@ -1,6 +1,11 @@
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
+import { SpinnerType } from 'src/app/base/base.component';
+import {
+  FileUploadDialogComponent,
+  FileUploadDialogState,
+} from 'src/app/dialogs/file-upload-dialog/file-upload-dialog.component';
 import {
   AlertifyService,
   MessageType,
@@ -12,6 +17,8 @@ import {
   ToastrPosition,
 } from 'src/core/services/custom-toastr.service';
 import { HttpClientService } from 'src/core/services/http-client.service';
+import { DialogService } from '../../dialog.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'tib-file-upload',
@@ -22,7 +29,9 @@ export class FileUploadComponent {
   constructor(
     private httpClientService: HttpClientService,
     private alertifyService: AlertifyService,
-    private toastrService: CustomToastrService
+    private toastrService: CustomToastrService,
+    private dialogService: DialogService,
+    private spinner: NgxSpinnerService
   ) {}
 
   public files: NgxFileDropEntry[];
@@ -37,51 +46,60 @@ export class FileUploadComponent {
         fileData.append(_file.name, _file, file.relativePath);
       });
     }
+    this.dialogService.openDialog({
+      componentType: FileUploadDialogComponent,
+      data: FileUploadDialogState.Yes,
+      afterClosed: () => {
+        this.spinner.show(SpinnerType.ball);
+        this.httpClientService
+          .post(
+            {
+              controller: this.options.controller,
+              action: this.options.action,
+              queryString: this.options.queryString,
+              headers: new HttpHeaders({ responseType: 'blob' }),
+            },
+            fileData
+          )
+          .subscribe(
+            (data) => {
+              const message: string = 'Dosyalar başarıyla yüklenmiştir.';
 
-    this.httpClientService
-      .post(
-        {
-          controller: this.options.controller,
-          action: this.options.action,
-          queryString: this.options.queryString,
-          headers: new HttpHeaders({ responseType: 'blob' }),
-        },
-        fileData
-      )
-      .subscribe(
-        (data) => {
-          if (this.options.isAdminPage) {
-            this.alertifyService.message('File uploaded successfully', {
-              dismissOthers: true,
-              messageType: MessageType.Success,
-              position: Position.BottomRight,
-            });
-          } else {
-            this.toastrService.message(
-              'File uploaded successfully',
-              'Success',
-              {
-                messageType: ToastrMessageType.Success,
-                position: ToastrPosition.TopRight,
+              this.spinner.hide(SpinnerType.ball);
+              if (this.options.isAdminPage) {
+                this.alertifyService.message(message, {
+                  dismissOthers: true,
+                  messageType: MessageType.Success,
+                  position: Position.TopRight,
+                });
+              } else {
+                this.toastrService.message(message, 'Başarılı.', {
+                  messageType: ToastrMessageType.Success,
+                  position: ToastrPosition.TopRight,
+                });
               }
-            );
-          }
-        },
-        (errorResponse: HttpErrorResponse) => {
-          if (this.options.isAdminPage) {
-            this.alertifyService.message('File upload failed', {
-              dismissOthers: true,
-              messageType: MessageType.Error,
-              position: Position.BottomRight,
-            });
-          } else {
-            this.toastrService.message('File upload failed', 'Fail', {
-              messageType: ToastrMessageType.Error,
-              position: ToastrPosition.TopRight,
-            });
-          }
-        }
-      );
+            },
+            (errorResponse: HttpErrorResponse) => {
+              const message: string =
+                'Dosyalar yüklenirken beklenmeyen bir hatayla karşılaşılmıştır.';
+
+              this.spinner.hide(SpinnerType.ball);
+              if (this.options.isAdminPage) {
+                this.alertifyService.message(message, {
+                  dismissOthers: true,
+                  messageType: MessageType.Error,
+                  position: Position.TopRight,
+                });
+              } else {
+                this.toastrService.message(message, 'Başarsız.', {
+                  messageType: ToastrMessageType.Error,
+                  position: ToastrPosition.TopRight,
+                });
+              }
+            }
+          );
+      },
+    });
   }
 }
 

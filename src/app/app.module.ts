@@ -21,9 +21,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { markAsUntransferable } from 'worker_threads';
+import { FileUploadDialogComponent } from './dialogs/file-upload-dialog/file-upload-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, DeleteDialogComponent],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    DeleteDialogComponent,
+    FileUploadDialogComponent,
+  ],
   imports: [
     FormsModule,
     BrowserModule,

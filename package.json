@@ -29,6 +29,7 @@
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "ngx-file-drop": "^16.0.0",
+    "ngx-spinner": "^16.0.2",
     "ngx-toastr": "^18.0.0",
     "rxjs": "^6.6.3",
     "sweetalert2": "^11.1.9",
