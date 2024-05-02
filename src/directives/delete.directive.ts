@@ -8,7 +8,7 @@ import {
 
 import { HttpClientService } from 'src/core/services/http-client.service';
 
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { DeleteDialogComponent } from 'src/app/dialogs/delete-dialog/delete-dialog.component';
 
 declare var $: any;
