@@ -1,6 +1,6 @@
-@import "~@swimlane/ngx-datatable/index.css";
-@import "~@swimlane/ngx-datatable/themes/bootstrap.scss";
-@import "~@swimlane/ngx-datatable/assets/icons.css";
+@import '../node_modules/@swimlane/ngx-datatable/index.css';
+@import '../node_modules/@swimlane/ngx-datatable/themes/bootstrap.scss';
+@import '../node_modules/@swimlane/ngx-datatable/assets/icons.css';
 :root {
   --bg-color: #191c24;
   --link-hover-color: #0f1015;
@@ -60,7 +60,7 @@ body {
 }
 
 #loader:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 5px;
   left: 5px;
@@ -74,7 +74,7 @@ body {
 }
 
 #loader:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 15px;
   left: 15px;
@@ -145,5 +145,11 @@ select {
   background-color: var(--bg-color);
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
