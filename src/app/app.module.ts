@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
 import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { FileUploadDialogComponent } from './dialogs/file-upload-dialog/file-upload-dialog.component';
+import { SelectProductImageDialogComponent } from './dialogs/select-product-image-dialog/select-product-image-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FileUploadDialogComponent } from './dialogs/file-upload-dialog/file-upl
     WelcomeComponent,
     DeleteDialogComponent,
     FileUploadDialogComponent,
+    SelectProductImageDialogComponent,
   ],
   imports: [
     FormsModule,

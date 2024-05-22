@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListProduct } from 'src/app/contracts/list.product';
 import { ProductService } from 'src/core/services/models/product.service';
+import { DialogService } from 'src/core/services/common/dialog.service';
 
 @Component({
   selector: 'tib-list',
@@ -8,7 +9,10 @@ import { ProductService } from 'src/core/services/models/product.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private dialogService: DialogService
+  ) {}
 
   displayedColumns: string[] = [
     'name',
