@@ -22,7 +22,9 @@ import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.com
 import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { FileUploadDialogComponent } from './dialogs/file-upload-dialog/file-upload-dialog.component';
 import { SelectProductImageDialogComponent } from './dialogs/select-product-image-dialog/select-product-image-dialog.component';
-
+import { MatCardModule } from '@angular/material/card';
+import { FileUploadComponent } from 'src/core/services/common/file-upload/file-upload/file-upload.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { SelectProductImageDialogComponent } from './dialogs/select-product-imag
     DeleteDialogComponent,
     FileUploadDialogComponent,
     SelectProductImageDialogComponent,
+    FileUploadComponent,
   ],
   imports: [
     FormsModule,
@@ -47,6 +50,8 @@ import { SelectProductImageDialogComponent } from './dialogs/select-product-imag
     ProductsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatCardModule,
+    NgxFileDropModule,
   ],
   providers: [
     { provide: 'baseUrl', useValue: environment.apiUrl, multi: true },

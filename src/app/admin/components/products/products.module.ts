@@ -18,7 +18,7 @@ import { FileUploadModule } from 'src/core/services/common/file-upload/file-uplo
     EditComponent,
     DeleteDirective,
   ],
-  imports: [CommonModule, FileUploadModule],
+  imports: [CommonModule],
   exports: [ProductsComponent],
 })
 export class ProductsModule {}

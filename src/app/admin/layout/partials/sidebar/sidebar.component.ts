@@ -209,7 +209,7 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next();
+    this.destroy$.next(null);
     this.destroy$.complete();
   }
 }

@@ -4,8 +4,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 
 @NgModule({
-  declarations: [FileUploadComponent],
+  declarations: [],
   imports: [CommonModule, NgxFileDropModule],
-  exports: [FileUploadComponent],
+  exports: [],
 })
 export class FileUploadModule {}
