@@ -5,10 +5,11 @@ import { ProductsComponent } from 'src/app/admin/components/products/products.co
 import { WelcomeComponent } from 'src/app/admin/components/welcome/welcome.component';
 import { LayoutComponent } from 'src/app/admin/layout/layout.component';
 import { UiComponent } from './ui/components/ui/ui.component';
+import { UilayoutComponent } from './ui/layout/uilayout/uilayout.component';
 const routes: Routes = [
   {
     path: '',
-    component: UiComponent,
+    component: UilayoutComponent,
   },
   {
     path: 'admin',

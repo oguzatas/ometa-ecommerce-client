@@ -25,6 +25,9 @@ import { SelectProductImageDialogComponent } from './dialogs/select-product-imag
 import { MatCardModule } from '@angular/material/card';
 import { FileUploadComponent } from 'src/core/services/common/file-upload/file-upload/file-upload.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { UifooterComponent } from './ui/layout/partials/uifooter/uifooter.component';
+import { UilayoutComponent } from './ui/layout/uilayout/uilayout.component';
+import { UinavbarComponent } from './ui/layout/partials/uinavbar/uinavbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,9 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     FileUploadDialogComponent,
     SelectProductImageDialogComponent,
     FileUploadComponent,
+    UilayoutComponent,
+    UinavbarComponent,
+    UifooterComponent,
   ],
   imports: [
     FormsModule,
