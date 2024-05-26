@@ -14,10 +14,13 @@ export class UilayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.styleLoader.unloadStyle('admin-styles');
-    this.styleLoader.loadStyle('ui-styles', 'src/assets/ui/css/style.css');
+    this.styleLoader.loadStyle(
+      'ui-styles',
+      '../../../../assets/ui/css/style.css'
+    );
     this.styleLoader.loadStyle(
       'bootstrap',
-      'src/assets/ui/css/bootstrap.min.css'
+      '../../../../assets/ui/css/bootstrap.min.css'
     );
   }
   ngOnDestroy(): void {
