@@ -7,7 +7,7 @@ import { SpinnerType } from '../../base/base.component';
 import { DialogService } from '../../../core/services/common/dialog.service';
 import { FileUploadOptions } from '../../../core/services/common/file-upload/file-upload/file-upload.component';
 import { ProductService } from '../../../core/services/models/product.service';
-import { List_Product_Image } from '../../contracts/list.product.image';
+import { List_Product_Image } from '../../contracts/list_product.image';
 import { BaseDialog } from '../base/base-dialog';
 import {
   DeleteDialogComponent,
