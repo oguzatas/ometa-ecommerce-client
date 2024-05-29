@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { firstValueFrom, Observable } from 'rxjs';
-import { Menu } from '../../../contracts/application-configurations/menu';
+import { Menu } from '../../../app/contracts/application-configurations/menu';
 import { HttpClientService } from '../http-client.service';
 
 @Injectable({
