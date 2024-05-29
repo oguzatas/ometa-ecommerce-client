@@ -11,6 +11,8 @@ import { HomeComponent } from './ui/components/home/home.component';
 import { BlogComponent } from './ui/components/blog/blog.component';
 import { ContactComponent } from './ui/components/contact/contact.component';
 import { ServicesComponent } from './ui/components/services/services.component';
+import { LoginComponent } from './admin/components/login/login.component';
+import { AuthGuard } from '../app/guards/common/auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -35,16 +37,23 @@ const routes: Routes = [
       {
         path: 'welcome',
         component: WelcomeComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'products',
         component: ProductsComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'categories',
         component: CategoriesComponent,
+        canActivate: [AuthGuard],
       },
     ],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 

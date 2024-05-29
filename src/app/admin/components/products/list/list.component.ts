@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListProduct } from 'src/app/contracts/list.product';
+import { List_Product } from 'src/app/contracts/list_product';
 import { ProductService } from 'src/core/services/models/product.service';
 import { DialogService } from 'src/core/services/common/dialog.service';
 
@@ -22,10 +22,10 @@ export class ListComponent implements OnInit {
     'updatedDate',
   ];
 
-  dataSource: ListProduct[];
+  dataSource: List_Product[];
 
   async ngOnInit() {
-    const allProducts: ListProduct[] = await this.productService.read();
+    const allProducts: List_Product[] = await this.productService.read();
     this.dataSource = allProducts;
   }
 }

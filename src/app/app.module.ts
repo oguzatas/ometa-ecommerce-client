@@ -28,6 +28,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { UifooterComponent } from './ui/layout/partials/uifooter/uifooter.component';
 import { UilayoutComponent } from './ui/layout/uilayout/uilayout.component';
 import { UinavbarComponent } from './ui/layout/partials/uinavbar/uinavbar.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { UinavbarComponent } from './ui/layout/partials/uinavbar/uinavbar.compon
     MatDialogModule,
     MatCardModule,
     NgxFileDropModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     { provide: 'baseUrl', useValue: environment.apiUrl, multi: true },
