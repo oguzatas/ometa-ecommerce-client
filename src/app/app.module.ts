@@ -29,6 +29,14 @@ import { UifooterComponent } from './ui/layout/partials/uifooter/uifooter.compon
 import { UilayoutComponent } from './ui/layout/uilayout/uilayout.component';
 import { UinavbarComponent } from './ui/layout/partials/uinavbar/uinavbar.component';
 import { ToastrModule } from 'ngx-toastr';
+import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialAuthServiceConfig,
+  SocialLoginModule,
+} from '@abacritt/angularx-social-login';
+import { HttpErrorHandlerInterceptorService } from 'src/core/services/http-error-handler-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +68,12 @@ import { ToastrModule } from 'ngx-toastr';
     MatCardModule,
     NgxFileDropModule,
     ToastrModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('accessToken'),
+        allowedDomains: ['http://localhost:4200'],
+      },
+    }),
   ],
   providers: [
     { provide: 'baseUrl', useValue: environment.apiUrl, multi: true },
@@ -67,6 +81,40 @@ import { ToastrModule } from 'ngx-toastr';
       provide: APP_INITIALIZER,
       useFactory: (el: AppInitService) => () => el.init(),
       deps: [AppInitService],
+      multi: true,
+    },
+    {
+      provide: 'baseUrl',
+      useValue: 'https://eticaretapiapi20221231102840.azurewebsites.net/api',
+      multi: true,
+    },
+    {
+      provide: 'baseSignalRUrl',
+      useValue: 'https://eticaretapiapi20221231102840.azurewebsites.net/',
+      multi: true,
+    },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '957600947173-p70lrqqhr09h965tdg3590122k70q04c.apps.googleusercontent.com'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('546631843676576'),
+          },
+        ],
+        onError: (err) => console.log(err),
+      } as SocialAuthServiceConfig,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorHandlerInterceptorService,
       multi: true,
     },
   ],
