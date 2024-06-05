@@ -55,6 +55,17 @@ const routes: Routes = [
   {
     path: 'login',
     component: AuthlayoutComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'login',
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+    ],
   },
 ];
 

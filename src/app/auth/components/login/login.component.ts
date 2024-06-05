@@ -47,50 +47,13 @@ export class LoginComponent extends BaseComponent {
     });
   }
 
-  ngOnInit(): void {
-    this.styleLoader.loadStyle(
-      'mdi',
-      '../../../../assets/vendors/mdi/css/materialdesignicons.min.css'
-    );
-    this.styleLoader.loadStyle(
-      'vendor-base',
-      '../../../../assets/vendors/css/vendor.bundle.base.css'
-    );
-    this.styleLoader.loadStyle(
-      'admin-styles',
-      '../../../../assets/css/style.css'
-    );
-    this.styleLoader.loadStyle(
-      'google-font-roboto',
-      'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap'
-    );
-    this.styleLoader.loadStyle(
-      'google-material-icons',
-      'https://fonts.googleapis.com/icon?family=Material+Icons'
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.styleLoader.unloadStyle('mdi');
-    this.styleLoader.unloadStyle('vendor-base');
-    this.styleLoader.unloadStyle('admin-styles');
-    this.styleLoader.unloadStyle('google-font-roboto');
-    this.styleLoader.unloadStyle('google-material-icons');
-  }
-
-  onSubmit(event: Event) {
-    event.preventDefault();
-    const target = event.target as HTMLFormElement;
-    const usernameOrEmail = (
-      target.querySelector('input[type="text"]') as HTMLInputElement
-    )?.value;
-    const password = (
-      target.querySelector('input[type="password"]') as HTMLInputElement
-    )?.value;
+  onSubmit(usernameOrEmail: string, password: string) {
+    console.log('Form submitted', { usernameOrEmail, password });
     this.login(usernameOrEmail, password);
   }
 
   async login(usernameOrEmail: string, password: string) {
+    console.log('Login attempt', { usernameOrEmail, password });
     this.showSpinner(SpinnerType.ball);
     await this.userAuthService.login(usernameOrEmail, password, () => {
       this.authService.identityCheck();
@@ -98,6 +61,7 @@ export class LoginComponent extends BaseComponent {
       this.activatedRoute.queryParams.subscribe((params) => {
         const returnUrl: string = params['returnUrl'];
         if (returnUrl) this.router.navigate([returnUrl]);
+        else this.router.navigate(['/']);
       });
       this.hideSpinner(SpinnerType.ball);
     });
