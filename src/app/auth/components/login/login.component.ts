@@ -10,6 +10,7 @@ import {
   SocialAuthService,
   SocialUser,
 } from '@abacritt/angularx-social-login';
+
 @Component({
   selector: 'tib-login',
   templateUrl: './login.component.html',
@@ -77,6 +78,18 @@ export class LoginComponent extends BaseComponent {
     this.styleLoader.unloadStyle('google-material-icons');
   }
 
+  onSubmit(event: Event) {
+    event.preventDefault();
+    const target = event.target as HTMLFormElement;
+    const usernameOrEmail = (
+      target.querySelector('input[type="text"]') as HTMLInputElement
+    )?.value;
+    const password = (
+      target.querySelector('input[type="password"]') as HTMLInputElement
+    )?.value;
+    this.login(usernameOrEmail, password);
+  }
+
   async login(usernameOrEmail: string, password: string) {
     this.showSpinner(SpinnerType.ball);
     await this.userAuthService.login(usernameOrEmail, password, () => {
@@ -92,5 +105,9 @@ export class LoginComponent extends BaseComponent {
 
   facebookLogin() {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  googleLogin() {
+    this.socialAuthService.signIn('GOOGLE');
   }
 }

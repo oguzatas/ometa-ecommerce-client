@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UilayoutComponent } from './layout/uilayout/uilayout.component';
-import { UinavbarComponent } from './layout/partials/footer/uinavbar/uinavbar.component';
+import { UinavbarComponent } from './layout/partials/uinavbar/uinavbar.component';
 import { UifooterComponent } from './layout/partials/uifooter/uifooter.component';
-
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    UilayoutComponent,
-    UinavbarComponent,
-    UifooterComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [],
+  imports: [CommonModule, RouterModule],
 })
-export class UiModule { }
+export class UiModule {}

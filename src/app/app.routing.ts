@@ -11,8 +11,9 @@ import { HomeComponent } from './ui/components/home/home.component';
 import { BlogComponent } from './ui/components/blog/blog.component';
 import { ContactComponent } from './ui/components/contact/contact.component';
 import { ServicesComponent } from './ui/components/services/services.component';
-import { LoginComponent } from './admin/components/login/login.component';
+import { LoginComponent } from './auth/components/login/login.component';
 import { AuthGuard } from '../app/guards/common/auth.guard';
+import { AuthlayoutComponent } from './auth/layout/authlayout/authlayout.component';
 const routes: Routes = [
   {
     path: '',
@@ -53,7 +54,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: AuthlayoutComponent,
   },
 ];
 

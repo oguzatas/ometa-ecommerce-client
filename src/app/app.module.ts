@@ -37,6 +37,9 @@ import {
   SocialLoginModule,
 } from '@abacritt/angularx-social-login';
 import { HttpErrorHandlerInterceptorService } from 'src/core/services/http-error-handler-interceptor.service';
+import { AuthlayoutComponent } from './auth/layout/authlayout/authlayout.component';
+import { RegisterComponent } from './auth/components/register/register.component';
+import { ForgetpasswordComponent } from './auth/components/forgetpassword/forgetpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +51,9 @@ import { HttpErrorHandlerInterceptorService } from 'src/core/services/http-error
     UilayoutComponent,
     UinavbarComponent,
     UifooterComponent,
+    AuthlayoutComponent,
+    RegisterComponent,
+    ForgetpasswordComponent,
   ],
   imports: [
     FormsModule,
@@ -85,12 +91,12 @@ import { HttpErrorHandlerInterceptorService } from 'src/core/services/http-error
     },
     {
       provide: 'baseUrl',
-      useValue: 'https://eticaretapiapi20221231102840.azurewebsites.net/api',
+      useValue: '',
       multi: true,
     },
     {
       provide: 'baseSignalRUrl',
-      useValue: 'https://eticaretapiapi20221231102840.azurewebsites.net/',
+      useValue: '',
       multi: true,
     },
     {
@@ -101,7 +107,7 @@ import { HttpErrorHandlerInterceptorService } from 'src/core/services/http-error
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '957600947173-p70lrqqhr09h965tdg3590122k70q04c.apps.googleusercontent.com'
+              '204930155239-h122ln313bdthcita9vctb7sf2ueiuvu.apps.googleusercontent.com'
             ),
           },
           {
