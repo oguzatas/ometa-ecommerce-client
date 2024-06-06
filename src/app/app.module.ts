@@ -41,6 +41,10 @@ import { AuthlayoutComponent } from './auth/layout/authlayout/authlayout.compone
 import { RegisterComponent } from './auth/components/register/register.component';
 import { ForgetpasswordComponent } from './auth/components/forgetpassword/forgetpassword.component';
 import { BasketItemRemoveDialogComponent } from './dialogs/basket-item-remove-dialog/basket-item-remove-dialog.component';
+import { CompleteOrderDialogComponent } from './dialogs/complete-order-dialog/complete-order-dialog.component';
+import { OrderDetailDialogComponent } from './dialogs/order-detail-dialog/order-detail-dialog.component';
+import { QrcodeDialogComponent } from './dialogs/qrcode-dialog/qrcode-dialog.component';
+import { QrcodeReadingDialogComponent } from './dialogs/qrcode-reading-dialog/qrcode-reading-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +60,10 @@ import { BasketItemRemoveDialogComponent } from './dialogs/basket-item-remove-di
     RegisterComponent,
     ForgetpasswordComponent,
     BasketItemRemoveDialogComponent,
+    CompleteOrderDialogComponent,
+    OrderDetailDialogComponent,
+    QrcodeDialogComponent,
+    QrcodeReadingDialogComponent,
   ],
   imports: [
     FormsModule,
