@@ -38,17 +38,17 @@ const routes: Routes = [
       {
         path: 'welcome',
         component: WelcomeComponent,
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
       {
         path: 'products',
         component: ProductsComponent,
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
       {
         path: 'categories',
         component: CategoriesComponent,
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
     ],
   },

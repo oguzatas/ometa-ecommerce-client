@@ -40,6 +40,7 @@ import { HttpErrorHandlerInterceptorService } from 'src/core/services/http-error
 import { AuthlayoutComponent } from './auth/layout/authlayout/authlayout.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { ForgetpasswordComponent } from './auth/components/forgetpassword/forgetpassword.component';
+import { BasketItemRemoveDialogComponent } from './dialogs/basket-item-remove-dialog/basket-item-remove-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { ForgetpasswordComponent } from './auth/components/forgetpassword/forget
     AuthlayoutComponent,
     RegisterComponent,
     ForgetpasswordComponent,
+    BasketItemRemoveDialogComponent,
   ],
   imports: [
     FormsModule,
@@ -87,11 +89,6 @@ import { ForgetpasswordComponent } from './auth/components/forgetpassword/forget
       provide: APP_INITIALIZER,
       useFactory: (el: AppInitService) => () => el.init(),
       deps: [AppInitService],
-      multi: true,
-    },
-    {
-      provide: 'baseUrl',
-      useValue: '',
       multi: true,
     },
     {
