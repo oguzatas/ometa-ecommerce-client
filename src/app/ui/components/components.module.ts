@@ -10,8 +10,19 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShopComponent } from './shop/shop.component';
 
+import { RouterModule } from '@angular/router';
+
 @NgModule({
-  declarations: [HomeComponent, BasketsComponent, UiComponent, AboutusComponent, BlogComponent, ServicesComponent, ContactComponent, ShopComponent],
-  imports: [CommonModule],
+  declarations: [
+    HomeComponent,
+    BasketsComponent,
+    UiComponent,
+    AboutusComponent,
+    BlogComponent,
+    ServicesComponent,
+    ContactComponent,
+    ShopComponent,
+  ],
+  imports: [CommonModule, RouterModule],
 })
 export class ComponentsModule {}

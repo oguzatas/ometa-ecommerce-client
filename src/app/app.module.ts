@@ -69,6 +69,8 @@ import {
   MatLegacyDialogModule,
   MatLegacyDialogRef,
 } from '@angular/material/legacy-dialog';
+import { ProductsComponent2 } from './ui/components/products/products.component';
+import { ListComponent2 } from './ui/components/products/list/list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,6 +97,8 @@ import {
     DeleteDirective,
     ProductsComponent,
     CreateComponent,
+    ProductsComponent2,
+    ListComponent2,
   ],
   imports: [
     FormsModule,

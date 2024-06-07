@@ -14,6 +14,7 @@ import { ServicesComponent } from './ui/components/services/services.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { AuthGuard } from '../app/guards/common/auth.guard';
 import { AuthlayoutComponent } from './auth/layout/authlayout/authlayout.component';
+import { ProductsComponent2 } from './ui/components/products/products.component';
 const routes: Routes = [
   {
     path: '',
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'blog', component: BlogComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'services', component: ServicesComponent },
+      { path: 'products', component: ProductsComponent2 },
     ],
   },
   {
