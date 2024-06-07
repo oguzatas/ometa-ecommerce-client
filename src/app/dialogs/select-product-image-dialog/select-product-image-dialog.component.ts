@@ -17,7 +17,7 @@ import {
 declare var $: any;
 
 @Component({
-  selector: 'app-select-product-image-dialog',
+  selector: 'tib-select-product-image-dialog',
   templateUrl: './select-product-image-dialog.component.html',
   styleUrls: ['./select-product-image-dialog.component.scss'],
 })

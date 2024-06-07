@@ -14,8 +14,8 @@ export class ProductService {
 
   create(
     product: Create_Product,
-    errorCallBack?: (errorMessage: string) => void,
-    successCallBack?: () => void
+    successCallBack?: () => void,
+    errorCallBack?: (errorMessage: string) => void
   ) {
     this.httpClientService
       .post(
@@ -27,7 +27,6 @@ export class ProductService {
       .subscribe(
         (result) => {
           successCallBack();
-          alert('success');
         },
         (errorResponse: HttpErrorResponse) => {
           const _error: Array<{ key: string; value: Array<string> }> =
@@ -37,59 +36,47 @@ export class ProductService {
             v.value.forEach((_v, _index) => {
               message += `${_v}<br>`;
             });
-            errorCallBack(message);
           });
+          errorCallBack(message);
         }
       );
   }
 
   async read(
+    page: number = 0,
+    size: number = 5,
     successCallBack?: () => void,
     errorCallBack?: (errorMessage: string) => void
-  ): Promise<List_Product[]> {
-    const promiseData: Promise<List_Product[]> = this.httpClientService
-      .get<List_Product[]>({
+  ): Promise<{ totalProductCount: number; products: List_Product[] }> {
+    const promiseData: Promise<{
+      totalProductCount: number;
+      products: List_Product[];
+    }> = this.httpClientService
+      .get<{ totalProductCount: number; products: List_Product[] }>({
         controller: 'products',
+        queryString: `page=${page}&size=${size}`,
       })
       .toPromise();
 
     promiseData
-      .then((d) => {
-        if (successCallBack) {
-          successCallBack();
-        }
-      })
-      .catch((errorResponse: HttpErrorResponse) => {
-        const _error: Array<{ key: string; value: Array<string> }> =
-          errorResponse.error;
-        let message = '';
-        _error.forEach((v, index) => {
-          v.value.forEach((_v, _index) => {
-            message += `${_v}<br>`;
-          });
-        });
-        if (errorCallBack) {
-          errorCallBack(message);
-        }
-      });
+      .then((d) => successCallBack())
+      .catch((errorResponse: HttpErrorResponse) =>
+        errorCallBack(errorResponse.message)
+      );
 
     return await promiseData;
   }
+
   async delete(id: string) {
-    const observable: Observable<any> = this.httpClientService.delete(
-      {
-        controller: 'products',
-      },
-      id
-    );
-    await observable
-      .toPromise()
-      .then((response) => {
-        console.log('Delete successful', response);
-      })
-      .catch((error) => {
-        console.error('Delete error', error);
-      });
+    const deleteObservable: Observable<any> =
+      this.httpClientService.delete<any>(
+        {
+          controller: 'products',
+        },
+        id
+      );
+
+    await firstValueFrom(deleteObservable);
   }
 
   async readImages(
@@ -134,6 +121,26 @@ export class ProductService {
       queryString: `imageId=${imageId}&productId=${productId}`,
     });
     await firstValueFrom(changeShowcaseImageObservable);
+    successCallBack();
+  }
+
+  async updateStockQrCodeToProduct(
+    productId: string,
+    stock: number,
+    successCallBack?: () => void
+  ) {
+    const observable = this.httpClientService.put(
+      {
+        action: 'qrcode',
+        controller: 'products',
+      },
+      {
+        productId,
+        stock,
+      }
+    );
+
+    await firstValueFrom(observable);
     successCallBack();
   }
 }

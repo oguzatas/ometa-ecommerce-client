@@ -19,9 +19,7 @@ import { ProductsModule } from './admin/components/products/products.module';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { FileUploadDialogComponent } from './dialogs/file-upload-dialog/file-upload-dialog.component';
-import { SelectProductImageDialogComponent } from './dialogs/select-product-image-dialog/select-product-image-dialog.component';
 import { MatCardModule } from '@angular/material/card';
 import { FileUploadComponent } from 'src/core/services/common/file-upload/file-upload/file-upload.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
@@ -45,14 +43,37 @@ import { CompleteOrderDialogComponent } from './dialogs/complete-order-dialog/co
 import { OrderDetailDialogComponent } from './dialogs/order-detail-dialog/order-detail-dialog.component';
 import { QrcodeDialogComponent } from './dialogs/qrcode-dialog/qrcode-dialog.component';
 import { QrcodeReadingDialogComponent } from './dialogs/qrcode-reading-dialog/qrcode-reading-dialog.component';
+import { AuthorizeUserDialogComponent } from './dialogs/authorize-user-dialog/authorize-user-dialog.component';
+import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatBadgeModule } from '@angular/material/badge';
+import { CommonModule } from '@angular/common';
+import { FileUploadModule } from 'src/core/services/common/file-upload/file-upload.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { SelectProductImageDialogComponent } from './dialogs/select-product-image-dialog/select-product-image-dialog.component';
+import { DeleteComponent } from './admin/components/products/delete/delete.component';
+import { ListComponent } from './admin/components/products/list/list.component';
+import { EditComponent } from './admin/components/products/edit/edit.component';
+import { DeleteDirective } from 'src/directives/delete.directive';
+import { ProductsComponent } from './admin/components/products/products.component';
+import { CreateComponent } from './admin/components/products/create/create.component';
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MatDialog,
+} from '@angular/material/dialog';
+import {
+  MatLegacyDialogModule,
+  MatLegacyDialogRef,
+} from '@angular/material/legacy-dialog';
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     DeleteDialogComponent,
-    FileUploadDialogComponent,
-    SelectProductImageDialogComponent,
-    FileUploadComponent,
     UilayoutComponent,
     UinavbarComponent,
     UifooterComponent,
@@ -64,6 +85,16 @@ import { QrcodeReadingDialogComponent } from './dialogs/qrcode-reading-dialog/qr
     OrderDetailDialogComponent,
     QrcodeDialogComponent,
     QrcodeReadingDialogComponent,
+    AuthorizeUserDialogComponent,
+    FileUploadComponent,
+    FileUploadDialogComponent,
+    SelectProductImageDialogComponent,
+    DeleteComponent,
+    ListComponent,
+    EditComponent,
+    DeleteDirective,
+    ProductsComponent,
+    CreateComponent,
   ],
   imports: [
     FormsModule,
@@ -73,6 +104,7 @@ import { QrcodeReadingDialogComponent } from './dialogs/qrcode-reading-dialog/qr
     AppRoutingModule,
     NgbModule,
     NgbDropdownModule,
+    MatSelectModule,
     NgbTypeaheadModule,
     NgxDatatableModule,
     NgbModalModule,
@@ -83,6 +115,18 @@ import { QrcodeReadingDialogComponent } from './dialogs/qrcode-reading-dialog/qr
     MatDialogModule,
     MatCardModule,
     NgxFileDropModule,
+    MatPaginatorModule,
+    MatBadgeModule,
+    MatInputModule,
+    MatBadgeModule,
+    MatCardModule,
+    CommonModule,
+    MatTableModule,
+    MatButtonModule,
+    FileUploadModule,
+    MatLegacyDialogModule,
+
+    MatListModule,
     ToastrModule.forRoot(),
     JwtModule.forRoot({
       config: {

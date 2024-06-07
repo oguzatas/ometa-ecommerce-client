@@ -1,24 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CreateComponent } from './create/create.component';
-import { ProductsComponent } from './products.component';
-import { DeleteComponent } from './delete/delete.component';
-import { ListComponent } from './list/list.component';
-import { EditComponent } from './edit/edit.component';
-import { DeleteDirective } from 'src/directives/delete.directive';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
-import { FileUploadModule } from 'src/core/services/common/file-upload/file-upload.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [
-    ProductsComponent,
-    CreateComponent,
-    DeleteComponent,
-    ListComponent,
-    EditComponent,
-    DeleteDirective,
+  declarations: [],
+  imports: [
+    CommonModule,
+    MatPaginatorModule,
+    MatDialogModule,
+
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
   ],
-  imports: [CommonModule],
-  exports: [ProductsComponent],
+  exports: [],
 })
 export class ProductsModule {}
