@@ -6,7 +6,7 @@ This project  built using Tibui Panel Template - Gencay Yildiz's Angular+.NET E-
 Project Structure, Authentication via JWT, HTTP Client and other useful services are functional,
 but not all of them properly implemented to the UI's x)
 
-
+Backend: https://github.com/oguzatas/OmetaEcommerceBackend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
 
